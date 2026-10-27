@@ -1,0 +1,28 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: apex-backend
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      # Persistent SQLite Database storage
+      - ./backend/apex_terminal.db:/app/apex_terminal.db
+    environment:
+      - PORT=8000
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Client browser talks to backend host/domain
+        NEXT_PUBLIC_API_URL: http://localhost:8000
+    container_name: apex-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend

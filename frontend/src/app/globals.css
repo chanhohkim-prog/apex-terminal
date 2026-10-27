@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+:root {
+  --background: #090a0f;
+  --foreground: #e1e7ec;
+  --amber: #ff9900;
+  --neon-green: #00ff66;
+  --neon-red: #ff3344;
+  --neon-cyan: #00e5ff;
+  --panel-bg: #11131a;
+  --panel-border: #1e2230;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Courier New", monospace;
+  overflow-x: hidden;
+}
+
+/* Custom Bloomberg Amber Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0d13;
+}
+::-webkit-scrollbar-thumb {
+  background: #2b3042;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ff9900;
+}
+
+/* Scanline and glowing terminal accent */
+.terminal-glow {
+  text-shadow: 0 0 8px rgba(255, 153, 0, 0.4);
+}
+
+.green-glow {
+  text-shadow: 0 0 8px rgba(0, 255, 102, 0.4);
+}
+
+.red-glow {
+  text-shadow: 0 0 8px rgba(255, 51, 68, 0.4);
+}
